@@ -2,7 +2,10 @@
 if test -z "$COMPOSER_BIN_PATH"
   set -gx COMPOSER_BIN_PATH $HOME/.composer/vendor/bin
 end
-set PATH $COMPOSER_BIN_PATH $PATH
+
+if not contains "$COMPOSER_BIN_PATH" $PATH
+  set PATH "$COMPOSER_BIN_PATH" $PATH
+end
 
 # get composer path
 if test -z "$COMPOSER_BIN"
