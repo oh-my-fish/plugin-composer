@@ -1,7 +1,7 @@
 # add Composer's global binaries to PATH
 if test -z "$COMPOSER_BIN_PATH"
   if test -n "$COMPOSER_HOME"
-    set -gx COMPOSER_BIN_PATH $COMPOSER_HOME/.composer/vendor/bin
+    set -gx COMPOSER_BIN_PATH $COMPOSER_HOME/vendor/bin
   else
     set -gx COMPOSER_BIN_PATH $HOME/.composer/vendor/bin
   end
