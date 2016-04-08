@@ -2,6 +2,10 @@
 if test -z "$COMPOSER_BIN_PATH"
   if test -n "$COMPOSER_HOME"
     set -gx COMPOSER_BIN_PATH $COMPOSER_HOME/vendor/bin
+  else if test -n "$XDG_CONFIG_HOME"
+    set -gx COMPOSER_BIN_PATH $XDG_CONFIG_HOME/composer/vendor/bin
+  else if test -d "$HOME/.config/composer"
+    set -gx COMPOSER_BIN_PATH $HOME/.config/composer/vendor/bin
   else
     set -gx COMPOSER_BIN_PATH $HOME/.composer/vendor/bin
   end
